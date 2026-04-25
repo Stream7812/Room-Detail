@@ -30,7 +30,9 @@
             line-height: 1.6;
         }
 
-        a { text-decoration: none; color: inherit; }
+        /* Global link styling to keep design consistent */
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; }
 
         /* --- Header --- */
         header {
@@ -49,6 +51,7 @@
             font-weight: 800;
             color: var(--primary-blue);
             margin-right: 40px;
+            display: inline-block;
         }
 
         nav ul {
@@ -94,6 +97,11 @@
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 20px;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
         }
 
         .hotel-header {
@@ -325,7 +333,7 @@
 <body>
 
 <header>
-    <div class="logo">T-Goda</div>
+    <a href="https://stream7812.github.io/HomePage/#" class="logo">T-Goda</a>
     <nav>
         <ul>
             <li><a href="#" class="active">Hotels</a></li>
@@ -342,7 +350,10 @@
 
 <div class="container">
     <div class="breadcrumbs">
-        Home > Greece > Crete Hotels > <b>Grand Azure Resort & Spa</b>
+        <a href="https://stream7812.github.io/HomePage/#">Home</a> > 
+        <a href="https://stream7812.github.io/HomePage/#">Greece</a> > 
+        <a href="https://stream7812.github.io/HomePage/#">Crete Hotels</a> > 
+        <b>Grand Azure Resort & Spa</b>
     </div>
 
     <div class="hotel-header">
@@ -503,7 +514,7 @@
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
-            <div class="logo">T-Goda</div>
+            <a href="https://stream7812.github.io/HomePage/#" class="logo">T-Goda</a>
             <p class="footer-desc">
                 Making world travel accessible, affordable, and delightful for everyone since 2024. Your journey starts here.
             </p>
