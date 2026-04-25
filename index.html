@@ -1,1337 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Goda | Escape to Your Perfect Paradise</title>
-    <!-- Font: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Icons: Lucide -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --primary-blue: #0060D0;
-            --text-dark: #111827;
-            --text-gray: #6B7280;
-            --bg-page: #F9FAFB;
-            --promo-red: #C01244;
-            --border-color: #E5E7EB;
-            --border-radius: 24px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-page);
-            color: var(--text-dark);
-            line-height: 1.5;
-        }
-
-        a { text-decoration: none; color: inherit; }
-
-        /* --- Header --- */
-        header {
-            background: white;
-            border-bottom: 1px solid var(--border-color);
-            height: 80px;
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1320px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            padding: 0 40px;
-        }
-
-        .nav-left-group {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--primary-blue);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-
-        .nav-links a.active {
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--primary-blue);
-            padding-bottom: 6px;
-        }
-
-        .nav-auth {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .btn-signin {
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 15px;
-        }
-
-        .btn-primary {
-            background: var(--primary-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            font-size: 15px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        /* --- Hero Section --- */
-        .hero-wrapper {
-            max-width: 1320px;
-            margin: 30px auto 0;
-            padding: 0 20px;
-        }
-
-        .hero {
-            position: relative;
-            height: 580px;
-            border-radius: 32px;
-            overflow: hidden;
-            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), 
-                        url('hero.png') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 64px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: 18px;
-            font-weight: 500;
-            max-width: 650px;
-            margin: 0 auto;
-            opacity: 0.95;
-        }
-
-        /* --- Search Bar --- */
-        .search-container {
-            margin-top: 32px;
-            background: white;
-            padding: 10px;
-            border-radius: 20px;
-            display: flex;
-            gap: 10px;
-            width: 90%;
-            max-width: 880px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 1px solid var(--border-color);
-        }
-
-        .search-field {
-            flex: 1;
-            background: #F1F5F9;
-            border-radius: 14px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border: 1px solid #E2E8F0;
-        }
-
-        .search-field input {
-            background: transparent;
-            border: none;
-            outline: none;
-            width: 100%;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .search-field i { color: #94A3B8; }
-
-        /* --- Main Content --- */
-        .main-content {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .features {
-            margin-top: 80px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .feature-card {
-            background: #F3F4F6;
-            padding: 40px;
-            border-radius: var(--border-radius);
-            text-align: center;
-        }
-
-        .feature-icon {
-            width: 50px; height: 50px;
-            margin: 0 auto 20px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%;
-        }
-
-        .icon-blue { background: #DBEAFE; color: var(--primary-blue); }
-        .icon-pink { background: #FCE7F3; color: #DB2777; }
-        .icon-gold { background: #FEF3C7; color: #D97706; }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 100px;
-            margin-bottom: 32px;
-        }
-
-        .section-header h2 { font-size: 32px; font-weight: 800; }
-        .view-all { color: var(--primary-blue); font-weight: 600; text-decoration: none; }
-
-        .destinations-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .dest-card { 
-            position: relative; 
-            transition: transform 0.2s ease;
-        }
-        
-        .dest-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .dest-card img {
-            width: 100%; height: 380px;
-            object-fit: cover; border-radius: var(--border-radius);
-            margin-bottom: 16px;
-        }
-
-        .badge {
-            position: absolute; top: 340px; left: 15px;
-            background: white; padding: 5px 12px; border-radius: 8px;
-            font-size: 12px; font-weight: 800; text-transform: uppercase;
-            color: var(--text-dark);
-        }
-
-        /* --- Promo Banner --- */
-        .promo-banner {
-            margin-top: 100px;
-            background: var(--promo-red);
-            border-radius: 35px;
-            padding: 60px 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .promo-bg-icon {
-            position: absolute;
-            top: 50%;
-            left: 55%;
-            transform: translate(-50%, -50%) rotate(-15deg);
-            height: 110%;
-            opacity: 0.08;
-            z-index: 1;
-            pointer-events: none;
-            filter: brightness(0) invert(1);
-        }
-
-        .promo-content {
-            position: relative;
-            z-index: 2;
-            max-width: 500px;
-        }
-
-        .promo-img {
-            position: relative;
-            z-index: 2;
-            width: 320px; height: 320px;
-            border-radius: 24px; object-fit: cover; transform: rotate(5deg);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        /* --- Newsletter --- */
-        .newsletter {
-            margin-top: 100px;
-            background: #EEF2FF;
-            padding: 80px;
-            border-radius: 35px;
-            text-align: center;
-        }
-
-        .subscribe-form {
-            display: flex; max-width: 500px; margin: 30px auto 16px; gap: 12px;
-        }
-
-        .subscribe-form input {
-            flex: 1; padding: 16px 24px; border-radius: 12px; border: 1px solid #E5E7EB; outline: none;
-        }
-
-        /* --- Footer --- */
-        footer {
-            margin-top: 100px; padding: 80px 0;
-            background: white; border-top: 1px solid var(--border-color);
-        }
-
-        .footer-grid {
-            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
-        }
-
-        @media (max-width: 1024px) {
-            .nav-left-group { gap: 20px; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 40px; }
-            .features, .destinations-grid, .footer-grid { grid-template-columns: 1fr; }
-            .promo-banner { flex-direction: column; text-align: center; gap: 40px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <div class="nav-left-group">
-                <a href="#" class="logo">T-Goda</a>
-                <ul class="nav-links">
-                    <li><a href="#" class="active">Hotels</a></li>
-                    <li><a href="#">Flights</a></li>
-                    <li><a href="#">Bundles</a></li>
-                    <li><a href="#">Activities</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-auth">
-                <a href="#" class="btn-signin">Sign In</a>
-                <button class="btn-primary">Create Account</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Card -->
-    <div class="hero-wrapper">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Escape to Your Perfect Paradise</h1>
-                <p>Unlock exclusive prices on over 2 million properties and flights across the globe.</p>
-            </div>
-            
-            <div class="search-container">
-                <div class="search-field">
-                    <i data-lucide="search" size="18"></i>
-                    <input type="text" placeholder="Where to next?">
-                </div>
-                <div class="search-field">
-                    <i data-lucide="calendar" size="18"></i>
-                    <input type="text" value="Oct 12 - Oct 18">
-                </div>
-                <!-- Search Button Clickable Link -->
-                <a href="https://stream7812.github.io/Search-Page/#" class="btn-primary" style="padding: 0 35px; gap: 8px;">
-                    <i data-lucide="search" size="18"></i> Search
-                </a>
-            </div>
-        </section>
-    </div>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        
-        <section class="features">
-            <div class="feature-card">
-                <div class="feature-icon icon-blue"><i data-lucide="tag" size="24"></i></div>
-                <h3>Best Price Guarantee</h3>
-                <p>Find a lower price? We'll match it and give you a voucher for your next trip.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon icon-pink"><i data-lucide="headset" size="24"></i></div>
-                <h3>24/7 Global Support</h3>
-                <p>Help you anywhere, anytime in 40+ languages.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon icon-gold"><i data-lucide="calendar-plus" size="24"></i></div>
-                <h3>Flexible Booking</h3>
-                <p>Most properties offer free cancellation for peace of mind.</p>
-            </div>
-        </section>
-
-        <!-- Trending -->
-        <section class="section-header">
-            <div>
-                <h2>Trending Destinations</h2>
-                <p style="color: var(--text-gray)">Handpicked favorites for your next adventure</p>
-            </div>
-            <a href="#" class="view-all">View all</a>
-        </section>
-
-        <section class="destinations-grid">
-            <!-- Card 1 -->
-            <a href="https://stream7812.github.io/Search-Page/#">
-                <div class="dest-card">
-                    <img src="bangkok.png" alt="Bangkok">
-                    <div class="badge">Top Rated</div>
-                    <div class="dest-info">
-                        <h4>Bangkok, Thailand</h4>
-                        <p>Starting from <span style="color:var(--primary-blue); font-weight:700;">$120</span></p>
-                    </div>
-                </div>
-            </a>
-            <!-- Card 2 -->
-            <a href="https://stream7812.github.io/Search-Page/#">
-                <div class="dest-card">
-                    <img src="tokyo.png" alt="Tokyo">
-                    <div class="dest-info">
-                        <h4>Tokyo, Japan</h4>
-                        <p>Starting from <span style="color:var(--primary-blue); font-weight:700;">$250</span></p>
-                    </div>
-                </div>
-            </a>
-            <!-- Card 3 -->
-            <a href="https://stream7812.github.io/Search-Page/#">
-                <div class="dest-card">
-                    <img src="paris.png" alt="Paris">
-                    <div class="dest-info">
-                        <h4>Paris, France</h4>
-                        <p>Starting from <span style="color:var(--primary-blue); font-weight:700;">$180</span></p>
-                    </div>
-                </div>
-            </a>
-            <!-- Card 4 -->
-            <a href="https://stream7812.github.io/Search-Page/#">
-                <div class="dest-card">
-                    <img src="london.png" alt="London">
-                    <div class="dest-info">
-                        <h4>London, UK</h4>
-                        <p>Starting from <span style="color:var(--primary-blue); font-weight:700;">$210</span></p>
-                    </div>
-                </div>
-            </a>
-        </section>
-
-        <!-- Promo Banner -->
-        <section class="promo-banner">
-            <img src="tag-icon.png" class="promo-bg-icon" alt="">
-            <div class="promo-content">
-                <h2 style="font-size: 48px; font-weight: 800; margin-bottom: 20px;">Summer Sales: Up to 40% Off!</h2>
-                <p style="margin-bottom: 30px;">Exclusive member deals on flights and luxury hotels for your getaway.</p>
-                <div style="display: flex; gap: 15px;">
-                    <button class="btn-primary" style="background:white; color:var(--promo-red);">Explore Deals</button>
-                    <button class="btn-primary" style="background:transparent; border: 1px solid white;">Join Club T-Goda</button>
-                </div>
-            </div>
-            <img src="uh.png" class="promo-img">
-        </section>
-
-        <!-- Newsletter -->
-        <section class="newsletter">
-            <i data-lucide="mail" size="48" style="color: var(--primary-blue)"></i>
-            <h2 style="font-size: 32px; font-weight: 800; margin-top: 15px;">Get Travel Deals Directly</h2>
-            <p style="color: var(--text-gray)">Subscribe to our newsletter and get early access to hidden gems.</p>
-            <div class="subscribe-form">
-                <input type="email" placeholder="Your email address">
-                <button class="btn-primary">Subscribe Now</button>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="nav-container footer-grid">
-            <div>
-                <div class="logo" style="color: #111827;">T-Goda</div>
-                <p style="margin-top: 20px; color: var(--text-gray); font-size: 14px;">Making world travel accessible, affordable, and delightful for everyone since 2024. Your journey starts here.</p>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <h4 style="font-size: 16px;">Company</h4>
-                <a href="#" style="color: var(--text-gray); font-size: 14px;">About Us</a>
-                <a href="#" style="color: var(--text-gray); font-size: 14px;">Careers</a>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <h4 style="font-size: 16px;">Support</h4>
-                <a href="#" style="color: var(--text-gray); font-size: 14px;">Support</a>
-                <a href="#" style="color: var(--text-gray); font-size: 14px;">Mobile App</a>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <h4 style="font-size: 16px;">Legal</h4>
-                <a href="#" style="color: var(--text-gray); font-size: 14px;">Privacy Policy</a>
-                <a href="#" style="color: var(--text-gray); font-size: 14px;">Terms of Service</a>
-            </div>
-        </div>
-        <div class="nav-container" style="margin-top: 60px; border-top: 1px solid var(--border-color); padding-top: 30px;">
-            <p style="color: var(--text-gray); font-size: 14px;">© 2024 T-Goda Booking. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
-30.6s
-User 2:58 PM
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Goda | Bali Hotels</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --tg-blue: #0071c2;
-            --tg-dark-blue: #0051a8;
-            --tg-red: #c01b33;
-            --tg-bg: #f5f5f5;
-            --tg-border: #e7e7e7;
-            --tg-text: #333333;
-            --tg-light-text: #666666;
-            --flash-pink: #ffeef0;
-            --star-gold: #febb02;
-        }
-code
-Code
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    body { background-color: white; color: var(--tg-text); }
-
-    /* Header */
-    header {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 10px 60px; }
-
-    .logo-nav-wrapper{
-        display: flex;
-        align-items: center;
-        gap: 40px;
-    }
-    .logo { font-size: 26px; font-weight: bold; color: var(--tg-blue); text-decoration: none; }
-    nav ul { display: flex; list-style: none; gap: 20px; }
-    nav a { text-decoration: none; color: var(--tg-text); font-size: 14px; font-weight: 500; }
-    nav a.active { color: var(--tg-blue); border-bottom: 2px solid var(--tg-blue); padding-bottom: 12px; }
-    .auth-btns .sign-in { text-decoration: none; color: var(--tg-text); margin-right: 20px; font-size: 14px; }
-    .auth-btns .create-btn { background: var(--tg-blue); color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 14px; }
-
-    /* Search Section */
-    .search-wrapper { background: #f0f2f5; padding: 20px 60px; }
-    .search-bar { 
-        display: flex; gap: 10px; max-width: 1200px; margin: 0 auto; 
-        background: white; padding: 8px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .search-box { 
-        flex: 1; background: #e9ecef; padding: 8px 15px; border-radius: 6px; 
-        display: flex; align-items: center; gap: 10px;
-    }
-    .search-box i { color: var(--tg-blue); font-size: 18px; }
-    .search-box label { display: block; font-size: 10px; color: var(--tg-light-text); }
-    .search-box span { font-size: 13px; font-weight: 600; }
-    .update-btn { background: var(--tg-blue); color: white; border: none; padding: 0 25px; border-radius: 6px; font-weight: bold; cursor: pointer; }
-
-    /* Main Content */
-    .container { display: grid; grid-template-columns: 240px 1fr; gap: 30px; padding: 30px 60px; max-width: 1400px; margin: 0 auto; }
-
-    /* Sidebar Filters */
-    .sidebar h3 { font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
-    .filter-group { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-    .filter-group h4 { font-size: 14px; margin-bottom: 12px; }
-    .price-slider { width: 100%; height: 6px; background: #444; border-radius: 5px; appearance: none; margin: 10px 0; }
-    .price-slider::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; background: #666; border-radius: 50%; cursor: pointer; border: 2px solid white; }
-    .check-item { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 8px; color: var(--tg-light-text); }
-    .stars { color: var(--star-gold); }
-    .map-box { 
-        width: 100%; height: 120px; border-radius: 8px; overflow: hidden; position: relative;
-        background: #aadaff; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;
-    }
-    .map-btn { position: absolute; background: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer; }
-
-    /* Property Listings */
-    .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    .results-header h2 { font-size: 20px; }
-    .sort-select { border: none; color: var(--tg-blue); font-weight: bold; font-size: 14px; cursor: pointer; }
-
-    /* Flash Deals - EXACT MATCH TO IMAGE 2 */
-    .flash-container { border: 3px solid var(--tg-blue); border-radius: 12px; overflow: hidden; margin-bottom: 30px; }
-    .flash-header { 
-        background: var(--flash-pink); padding: 10px 20px; border-bottom: 3px solid var(--tg-blue);
-        display: flex; justify-content: space-between; align-items: center;
-    }
-    .flash-title { color: #c01b33; font-weight: bold; font-size: 15px; display: flex; align-items: center; gap: 8px; }
-    .flash-timer { font-size: 12px; }
-    .timer-box { background: #c01b33; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-left: 5px; }
-    
-    .flash-deal-item { display: flex; border-bottom: 1px solid #eee; background: white; }
-    .flash-deal-item:last-child { border-bottom: none; }
-    .flash-img { width: 200px; height: 130px; object-fit: cover; position: relative; }
-    .discount-tag { position: absolute; top: 10px; left: 10px; background: var(--tg-red); color: white; font-size: 10px; font-weight: bold; padding: 3px 8px; border-radius: 4px; }
-    .flash-info { flex: 1; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-    .flash-info h3 { font-size: 16px; margin-bottom: 4px; }
-    .flash-info p { font-size: 12px; color: var(--tg-light-text); }
-    .price-col { text-align: right; }
-    .old-price { text-decoration: line-through; color: #999; font-size: 11px; }
-    .new-price { font-size: 24px; font-weight: bold; color: var(--tg-red); }
-    .claim-btn { background: var(--tg-red); color: white; border: none; padding: 6px 18px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 5px; }
-
-    /* Regular Hotel Cards */
-    .hotel-card { display: flex; border: 1px solid var(--tg-border); border-radius: 12px; margin-bottom: 20px; overflow: hidden; transition: 0.2s; }
-    .hotel-card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-    .card-img-wrap { width: 280px; height: 200px; position: relative; }
-    .card-img { width: 100%; height: 100%; object-fit: cover; }
-    .top-choice { position: absolute; top: 10px; left: 10px; background: var(--tg-blue); color: white; font-size: 11px; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
-    
-    .card-body { flex: 1; padding: 20px; display: flex; justify-content: space-between; }
-    .card-details h3 { font-size: 18px; margin-bottom: 5px; }
-    .card-loc { font-size: 12px; color: var(--tg-light-text); margin-bottom: 12px; }
-    .amenity-tag { display: inline-flex; align-items: center; gap: 4px; background: #f0f2f5; padding: 4px 8px; border-radius: 4px; font-size: 11px; margin-right: 5px; }
-    
-    .card-pricing { width: 180px; text-align: right; border-left: 1px solid #eee; padding-left: 15px; display: flex; flex-direction: column; justify-content: space-between; }
-    .rating-box { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 10px; }
-    .rating-text { text-align: right; }
-    .rating-text span { display: block; font-weight: bold; font-size: 13px; color: var(--tg-blue); }
-    .rating-text small { font-size: 10px; color: #999; }
-    .score { background: var(--tg-blue); color: white; font-weight: bold; padding: 8px; border-radius: 6px 6px 6px 0; }
-    .book-btn { background: var(--tg-red); color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
-    
-
-    /* Pagination */
-    .pagination { display: flex; justify-content: center; gap: 8px; margin: 40px 0; }
-    .pg-btn { width: 34px; height: 34px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none; color: #333; font-size: 14px; }
-    .pg-btn.active { background: var(--tg-blue); color: white; border-color: var(--tg-blue); }
-
-    /* Footer */
-    footer { background: #f8f9fa; border-top: 1px solid #eee; padding: 40px 60px; margin-top: 50px; }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
-    .footer-brand h2 { color: var(--tg-blue); margin-bottom: 15px; }
-    .footer-brand p { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 15px; }
-    .socials { display: flex; gap: 15px; font-size: 20px; color: #aaa; }
-    .footer-col h4 { margin-bottom: 15px; font-size: 15px; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; font-size: 13px; color: #666; }
-</style>
-</head>
-<body>
-code
-Code
-<header>
-    <div class="logo-nav-wrapper">
-        <a href="#" class="logo">T-Goda</a>
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Hotels</a></li>
-                <li><a href="#">Flights</a></li>
-                <li><a href="#">Bundles</a></li>
-                <li><a href="#">Activities</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <div class="auth-btns">
-        <a href="#" class="sign-in">Sign In</a>
-        <a href="#" class="create-btn">Create Account</a>
-    </div>
-</header>
-
-<div class="search-wrapper">
-    <div class="search-bar">
-        <div class="search-box">
-            <i class="fa-solid fa-location-dot"></i>
-            <div><label>Destination</label><span>Bali, Indonesia</span></div>
-        </div>
-        <div class="search-box">
-            <i class="fa-regular fa-calendar"></i>
-            <div><label>Dates</label><span>Oct 12 - Oct 19, 2024</span></div>
-        </div>
-        <div class="search-box">
-            <i class="fa-solid fa-user-group"></i>
-            <div><label>Travelers</label><span>2 Adults, 1 Room</span></div>
-        </div>
-        <button class="update-btn">Update Search</button>
-    </div>
-</div>
-
-<div class="container">
-    <aside class="sidebar">
-        <div class="filter-group">
-            <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
-            <h4>Price Range</h4>
-            <input type="range" class="price-slider">
-            <div style="display:flex; justify-content:space-between; font-size:11px;"><span>$0</span><span>$1000+</span></div>
-        </div>
-
-        <div class="filter-group">
-            <h4>Property Type</h4>
-            <label class="check-item"><input type="checkbox"> Hotels</label>
-            <label class="check-item"><input type="checkbox"> Resorts</label>
-            <label class="check-item"><input type="checkbox"> Apartments</label>
-            <label class="check-item"><input type="checkbox"> Villas</label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Star Rating</h4>
-            <label class="check-item"><input type="checkbox"> <span class="stars">★★★★★</span></label>
-            <label class="check-item"><input type="checkbox"> <span class="stars">★★★★</span></label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Facilities</h4>
-            <label class="check-item"><input type="checkbox"> Free Wi-Fi</label>
-            <label class="check-item"><input type="checkbox"> Swimming Pool</label>
-            <label class="check-item"><input type="checkbox"> Fitness Center</label>
-            <label class="check-item"><input type="checkbox"> Spa</label>
-            <label class="check-item"><input type="checkbox"> Parking</label>
-            <label class="check-item"><input type="checkbox"> Pet Friendly</label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Review Scores</h4>
-            <label class="check-item"><input type="checkbox"> Superb 9+</label>
-            <label class="check-item"><input type="checkbox"> Very Good 8+</label>
-            <label class="check-item"><input type="checkbox"> Good 7+</label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Neighborhood</h4>
-            <label class="check-item"><input type="checkbox"> Patong</label>
-            <label class="check-item"><input type="checkbox"> Keron</label>
-            <label class="check-item"><input type="checkbox"> Kata</label>
-            <label class="check-item"><input type="checkbox"> Kamala</label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Bed Type</h4>
-            <label class="check-item"><input type="checkbox"> Single</label>
-            <label class="check-item"><input type="checkbox"> Double</label>
-            <label class="check-item"><input type="checkbox"> King</label>
-        </div>
-
-
-        <div class="map-box">
-            <button class="map-btn"><i class="fa-solid fa-map"></i> View on Map</button>
-        </div>
-    </aside>
-
-    <main>
-        <div class="results-header">
-            <h2>245 properties in Bali</h2>
-            <div class="sort-select">Sort by: Recommended <i class="fa-solid fa-chevron-down"></i></div>
-        </div>
-
-        <!-- Flash Deals Redesigned to match image layout -->
-        <div class="flash-container">
-            <div class="flash-header">
-                <div class="flash-title"><i class="fa-solid fa-fire"></i> Flash Deals for You</div>
-                <div class="flash-timer">Ends in: <span class="timer-box">08</span> : <span class="timer-box">45</span> : <span class="timer-box">12</span></div>
-            </div>
-            
-            <div class="flash-deal-item">
-                <div class="flash-img">
-                    <img src="Mandala.png" class="card-img" alt="">
-                    <div class="discount-tag">60% OFF</div>
-                </div>
-                <div class="flash-info">
-                    <div>
-                        <h3>Mandala Sky Luxury Villas <span class="stars">★★★★★</span></h3>
-                        <p><i class="fa-solid fa-location-dot"></i> Uluwatu, Bali • Cliff-top view</p>
-                    </div>
-                    <div class="price-col">
-                        <div class="old-price">$1,200</div>
-                        <div class="new-price">$480<small style="font-size:11px; font-weight:normal; color:#666;">/night</small></div>
-                        <button class="claim-btn">Claim</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flash-deal-item">
-                <div class="flash-img">
-                    <img src="Emeraid.png" class="card-img" alt="">
-                    <div class="discount-tag">45% OFF</div>
-                </div>
-                <div class="flash-info">
-                    <div>
-                        <h3>Emerald Jungle Retreat <span class="stars">★★★★</span></h3>
-                        <p><i class="fa-solid fa-location-dot"></i> Ubud, Bali • Private Sanctuary</p>
-                    </div>
-                    <div class="price-col">
-                        <div class="old-price">$450</div>
-                        <div class="new-price">$247<small style="font-size:11px; font-weight:normal; color:#666;">/night</small></div>
-                        <button class="claim-btn">Claim</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flash-deal-item">
-                <div class="flash-img">
-                    <img src="Seminyak.png" class="card-img" alt="">
-                    <div class="discount-tag">35% OFF</div>
-                </div>
-                <div class="flash-info">
-                    <div>
-                        <h3>Seminyak Shores Club <span class="stars">★★★★★</span></h3>
-                        <p><i class="fa-solid fa-location-dot"></i> Seminyak, Bali • Beachfront Bliss</p>
-                    </div>
-                    <div class="price-col">
-                        <div class="old-price">$680</div>
-                        <div class="new-price">$442<small style="font-size:11px; font-weight:normal; color:#666;">/night</small></div>
-                        <button class="claim-btn">Claim</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Standard Hotel Card -->
-        <div class="hotel-card">
-            <div class="card-img-wrap">
-                <img src="Azure.png" class="card-img" alt="">
-                <div class="top-choice"><i class="fa-solid fa-circle-check"></i> Top Choice</div>
-            </div>
-            <div class="card-body">
-                <div class="card-details">
-                    <h3>The Azure Serenity Resort <span class="stars">★★★★★</span></h3>
-                    <p class="card-loc"><i class="fa-solid fa-location-dot"></i> Ubud, Bali • 2.5 km from center</p>
-                    <div class="amenities">
-                        <span class="amenity-tag"><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span>
-                        <span class="amenity-tag"><i class="fa-solid fa-person-swimming"></i> Pool</span>
-                        <span class="amenity-tag"><i class="fa-solid fa-utensils"></i> Breakfast</span>
-                    </div>
-                    <p style="font-size:11px; color:var(--tg-red); margin-top:10px;">Only 2 rooms left at this price!</p>
-                </div>
-                <div class="card-pricing">
-                    <div class="rating-box">
-                        <div class="rating-text"><span>8.9 Excellent</span><small>1,240 reviews</small></div>
-                        <div class="score">8.9</div>
-                    </div>
-                    <div>
-                        <div class="old-price">$320</div>
-                        <div class="new-price" style="color:var(--tg-red);">$284<small style="font-size:11px; font-weight:normal; color:#666;">/night</small></div>
-                        <button class="book-btn">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hotel-card">
-            <div class="card-img-wrap">
-                <img src="Lumina.png" class="card-img" alt="">
-            </div>
-            <div class="card-body">
-                <div class="card-details">
-                    <h3>Lumina Beach Villas <span class="stars">★★★★</span></h3>
-                    <p class="card-loc"><i class="fa-solid fa-location-dot"></i> Seminyak,Bali • Beachfront</p>
-                    <div class="amenities">
-                        <span class="amenity-tag"> PrivateBeach</span>
-                        <span class="amenity-tag"> Spa</span>
-                    </div>
-                    <p style="font-size:11px; color:var(--tg-red); margin-top:10px;">Free cancellation before Oct 10</p>
-                </div>
-                <div class="card-pricing">
-                    <div class="rating-box">
-                        <div class="rating-text"><span>9.2 Exceptional</span><small>856 reviews</small></div>
-                        <div class="score">9.2</div>
-                    </div>
-                    <div>
-                        <div class="new-price" style="color:var(--tg-red);">$415<small style="font-size:11px; font-weight:normal; color:#666;">/night</small></div>
-                        <button class="book-btn">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hotel-card">
-            <div class="card-img-wrap">
-                <img src="Palm.png" class="card-img" alt="">
-            </div>
-            <div class="card-body">
-                <div class="card-details">
-                    <h3>The Palms Sanctuary <span class="stars">★★★★</span></h3>
-                    <p class="card-loc"><i class="fa-solid fa-location-dot"></i> Nusa Dua,Ball • 0.8 km from beach</p>
-                    <div class="amenities">
-                        <span class="amenity-tag"> Airport Shuttle</span>
-                        <span class="amenity-tag"> Gym</span>
-                    </div>
-                    <p style="font-size:11px; color:var(--tg-red); margin-top:10px;">Breakfast + Dinner deal available</p>
-                </div>
-                <div class="card-pricing">
-                    <div class="rating-box">
-                        <div class="rating-text"><span>8.4 Great</span><small>2,102 reviews</small></div>
-                        <div class="score">8.4</div>
-                    </div>
-                    <div>
-                        <div class="new-price" style="color:var(--tg-red);">$189<small style="font-size:11px; font-weight:normal; color:#666;">/night</small></div>
-                        <button class="book-btn">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Pagination -->
-        <div class="pagination">
-            <a href="#" class="pg-btn"><i class="fa-solid fa-chevron-left"></i></a>
-            <a href="#" class="pg-btn active">1</a>
-            <a href="#" class="pg-btn">2</a>
-            <a href="#" class="pg-btn">3</a>
-            <span style="align-self:center">...</span>
-            <a href="#" class="pg-btn">12</a>
-            <a href="#" class="pg-btn"><i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-    </main>
-</div>
-
-<footer>
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <h2>T-Goda</h2>
-            <p>Making world travel accessible, affordable, and delightful for everyone since 2024. Your journey starts here.</p>
-            <div class="socials">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-twitter"></i>
-            </div>
-        </div>
-        <div class="footer-col">
-            <h4>Company</h4>
-            <ul><li>About Us</li><li>Careers</li></ul>
-        </div>
-        <div class="footer-col">
-            <h4>Support</h4>
-            <ul><li>Support</li><li>Mobile App</li></ul>
-        </div>
-        <div class="footer-col">
-            <h4>Legal</h4>
-            <ul><li>Privacy Policy</li><li>Terms of Service</li></ul>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
-|| make it that when press "T-goda" button it bring user to website "https://stream7812.github.io/HomePage/#" in href format. Also Make all 6 images, all 3 book now buttons and 3 Claim now buttons click able and send user to another website "https://stream7812.github.io/Room-Detail/" in href format
-Model 2:58 PM
-ThinkingThoughts
-Expand to view model thoughts
-
-chevron_right
-Here is the complete updated code. I have updated the logos to link to the Home Page and converted all 6 images and all 6 action buttons into clickable links pointing to the Room Detail page.
-code
-Html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Goda | Bali Hotels</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --tg-blue: #0071c2;
-            --tg-dark-blue: #0051a8;
-            --tg-red: #c01b33;
-            --tg-bg: #f5f5f5;
-            --tg-border: #e7e7e7;
-            --tg-text: #333333;
-            --tg-light-text: #666666;
-            --flash-pink: #ffeef0;
-            --star-gold: #febb02;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: white; color: var(--tg-text); }
-
-        /* Header */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 60px; }
-
-        .logo-nav-wrapper{
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        .logo { font-size: 26px; font-weight: bold; color: var(--tg-blue); text-decoration: none; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { text-decoration: none; color: var(--tg-text); font-size: 14px; font-weight: 500; }
-        nav a.active { color: var(--tg-blue); border-bottom: 2px solid var(--tg-blue); padding-bottom: 12px; }
-        .auth-btns .sign-in { text-decoration: none; color: var(--tg-text); margin-right: 20px; font-size: 14px; }
-        .auth-btns .create-btn { background: var(--tg-blue); color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 14px; }
-
-        /* Search Section */
-        .search-wrapper { background: #f0f2f5; padding: 20px 60px; }
-        .search-bar { 
-            display: flex; gap: 10px; max-width: 1200px; margin: 0 auto; 
-            background: white; padding: 8px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .search-box { 
-            flex: 1; background: #e9ecef; padding: 8px 15px; border-radius: 6px; 
-            display: flex; align-items: center; gap: 10px;
-        }
-        .search-box i { color: var(--tg-blue); font-size: 18px; }
-        .search-box label { display: block; font-size: 10px; color: var(--tg-light-text); }
-        .search-box span { font-size: 13px; font-weight: 600; }
-        .update-btn { background: var(--tg-blue); color: white; border: none; padding: 0 25px; border-radius: 6px; font-weight: bold; cursor: pointer; }
-
-        /* Main Content */
-        .container { display: grid; grid-template-columns: 240px 1fr; gap: 30px; padding: 30px 60px; max-width: 1400px; margin: 0 auto; }
-
-        /* Sidebar Filters */
-        .sidebar h3 { font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
-        .filter-group { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-        .filter-group h4 { font-size: 14px; margin-bottom: 12px; }
-        .price-slider { width: 100%; height: 6px; background: #444; border-radius: 5px; appearance: none; margin: 10px 0; }
-        .price-slider::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; background: #666; border-radius: 50%; cursor: pointer; border: 2px solid white; }
-        .check-item { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 8px; color: var(--tg-light-text); }
-        .stars { color: var(--star-gold); }
-        .map-box { 
-            width: 100%; height: 120px; border-radius: 8px; overflow: hidden; position: relative;
-            background: #aadaff; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;
-        }
-        .map-btn { position: absolute; background: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer; }
-
-        /* Property Listings */
-        .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .results-header h2 { font-size: 20px; }
-        .sort-select { border: none; color: var(--tg-blue); font-weight: bold; font-size: 14px; cursor: pointer; }
-
-        /* Flash Deals */
-        .flash-container { border: 3px solid var(--tg-blue); border-radius: 12px; overflow: hidden; margin-bottom: 30px; }
-        .flash-header { 
-            background: var(--flash-pink); padding: 10px 20px; border-bottom: 3px solid var(--tg-blue);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .flash-title { color: #c01b33; font-weight: bold; font-size: 15px; display: flex; align-items: center; gap: 8px; }
-        .flash-timer { font-size: 12px; }
-        .timer-box { background: #c01b33; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-left: 5px; }
-        
-        .flash-deal-item { display: flex; border-bottom: 1px solid #eee; background: white; }
-        .flash-deal-item:last-child { border-bottom: none; }
-        .flash-img { width: 200px; height: 130px; object-fit: cover; position: relative; display: block;}
-        .discount-tag { position: absolute; top: 10px; left: 10px; background: var(--tg-red); color: white; font-size: 10px; font-weight: bold; padding: 3px 8px; border-radius: 4px; }
-        .flash-info { flex: 1; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .flash-info h3 { font-size: 16px; margin-bottom: 4px; color: var(--tg-text); }
-        .flash-info p { font-size: 12px; color: var(--tg-light-text); }
-        .price-col { text-align: right; }
-        .old-price { text-decoration: line-through; color: #999; font-size: 11px; }
-        .new-price { font-size: 24px; font-weight: bold; color: var(--tg-red); }
-        .claim-btn { background: var(--tg-red); color: white; border: none; padding: 6px 18px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 5px; display: inline-block; text-decoration: none; }
-
-        /* Regular Hotel Cards */
-        .hotel-card { display: flex; border: 1px solid var(--tg-border); border-radius: 12px; margin-bottom: 20px; overflow: hidden; transition: 0.2s; }
-        .hotel-card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .card-img-wrap { width: 280px; height: 200px; position: relative; display: block; }
-        .card-img { width: 100%; height: 100%; object-fit: cover; }
-        .top-choice { position: absolute; top: 10px; left: 10px; background: var(--tg-blue); color: white; font-size: 11px; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
-        
-        .card-body { flex: 1; padding: 20px; display: flex; justify-content: space-between; }
-        .card-details h3 { font-size: 18px; margin-bottom: 5px; }
-        .card-loc { font-size: 12px; color: var(--tg-light-text); margin-bottom: 12px; }
-        .amenity-tag { display: inline-flex; align-items: center; gap: 4px; background: #f0f2f5; padding: 4px 8px; border-radius: 4px; font-size: 11px; margin-right: 5px; }
-        
-        .card-pricing { width: 180px; text-align: right; border-left: 1px solid #eee; padding-left: 15px; display: flex; flex-direction: column; justify-content: space-between; }
-        .rating-box { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 10px; }
-        .rating-text { text-align: right; }
-        .rating-text span { display: block; font-weight: bold; font-size: 13px; color: var(--tg-blue); }
-        .rating-text small { font-size: 10px; color: #999; }
-        .score { background: var(--tg-blue); color: white; font-weight: bold; padding: 8px; border-radius: 6px 6px 6px 0; }
-        .book-btn { background: var(--tg-red); color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; display: block; text-decoration: none; text-align: center; }
-
-        /* Pagination */
-        .pagination { display: flex; justify-content: center; gap: 8px; margin: 40px 0; }
-        .pg-btn { width: 34px; height: 34px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none; color: #333; font-size: 14px; }
-        .pg-btn.active { background: var(--tg-blue); color: white; border-color: var(--tg-blue); }
-
-        /* Footer */
-        footer { background: #f8f9fa; border-top: 1px solid #eee; padding: 40px 60px; margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .footer-brand h2 { color: var(--tg-blue); margin-bottom: 15px; }
-        .footer-brand p { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 15px; }
-        .socials { display: flex; gap: 15px; font-size: 20px; color: #aaa; }
-        .footer-col h4 { margin-bottom: 15px; font-size: 15px; }
-        .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 10px; font-size: 13px; color: #666; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-nav-wrapper">
-            <a href="https://stream7812.github.io/HomePage/#" class="logo">T-Goda</a>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Hotels</a></li>
-                    <li><a href="#">Flights</a></li>
-                    <li><a href="#">Bundles</a></li>
-                    <li><a href="#">Activities</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <div class="auth-btns">
-            <a href="#" class="sign-in">Sign In</a>
-            <a href="#" class="create-btn">Create Account</a>
-        </div>
-    </header>
-
-    <div class="search-wrapper">
-        <div class="search-bar">
-            <div class="search-box">
-                <i class="fa-solid fa-location-dot"></i>
-                <div><label>Destination</label><span>Bali, Indonesia</span></div>
-            </div>
-            <div class="search-box">
-                <i class="fa-regular fa-calendar"></i>
-                <div><label>Dates</label><span>Oct 12 - Oct 19, 2024</span></div>
-            </div>
-            <div class="search-box">
-                <i class="fa-solid fa-user-group"></i>
-                <div><label>Travelers</label><span>2 Adults, 1 Room</span></div>
-            </div>
-            <button class="update-btn">Update Search</button>
-        </div>
-    </div>
-
-    <div class="container">
-        <aside class="sidebar">
-            <!-- Filter groups... (Rest unchanged) -->
-            <div class="filter-group">
-                <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
-                <h4>Price Range</h4>
-                <input type="range" class="price-slider">
-                <div style="display:flex; justify-content:space-between; font-size:11px;"><span>$0</span><span>$1000+</span></div>
-            </div>
-            <div class="filter-group">
-                <h4>Property Type</h4>
-                <label class="check-item"><input type="checkbox"> Hotels</label>
-                <label class="check-item"><input type="checkbox"> Resorts</label>
-            </div>
-            <div class="map-box">
-                <button class="map-btn"><i class="fa-solid fa-map"></i> View on Map</button>
-            </div>
-        </aside>
-
-        <main>
-            <div class="results-header">
-                <h2>245 properties in Bali</h2>
-                <div class="sort-select">Sort by: Recommended <i class="fa-solid fa-chevron-down"></i></div>
-            </div>
-
-            <!-- Flash Deals -->
-            <div class="flash-container">
-                <div class="flash-header">
-                    <div class="flash-title"><i class="fa-solid fa-fire"></i> Flash Deals for You</div>
-                    <div class="flash-timer">Ends in: <span class="timer-box">08</span> : <span class="timer-box">45</span> : <span class="timer-box">12</span></div>
-                </div>
-                
-                <!-- Flash Deal Item 1 -->
-                <div class="flash-deal-item">
-                    <a href="https://stream7812.github.io/Room-Detail/" class="flash-img">
-                        <img src="Mandala.png" class="card-img" alt="">
-                        <div class="discount-tag">60% OFF</div>
-                    </a>
-                    <div class="flash-info">
-                        <div>
-                            <h3>Mandala Sky Luxury Villas <span class="stars">★★★★★</span></h3>
-                            <p><i class="fa-solid fa-location-dot"></i> Uluwatu, Bali</p>
-                        </div>
-                        <div class="price-col">
-                            <div class="old-price">$1,200</div>
-                            <div class="new-price">$480</div>
-                            <a href="https://stream7812.github.io/Room-Detail/" class="claim-btn">Claim</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flash Deal Item 2 -->
-                <div class="flash-deal-item">
-                    <a href="https://stream7812.github.io/Room-Detail/" class="flash-img">
-                        <img src="Emeraid.png" class="card-img" alt="">
-                        <div class="discount-tag">45% OFF</div>
-                    </a>
-                    <div class="flash-info">
-                        <div>
-                            <h3>Emerald Jungle Retreat <span class="stars">★★★★</span></h3>
-                            <p><i class="fa-solid fa-location-dot"></i> Ubud, Bali</p>
-                        </div>
-                        <div class="price-col">
-                            <div class="old-price">$450</div>
-                            <div class="new-price">$247</div>
-                            <a href="https://stream7812.github.io/Room-Detail/" class="claim-btn">Claim</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flash Deal Item 3 -->
-                <div class="flash-deal-item">
-                    <a href="https://stream7812.github.io/Room-Detail/" class="flash-img">
-                        <img src="Seminyak.png" class="card-img" alt="">
-                        <div class="discount-tag">35% OFF</div>
-                    </a>
-                    <div class="flash-info">
-                        <div>
-                            <h3>Seminyak Shores Club <span class="stars">★★★★★</span></h3>
-                            <p><i class="fa-solid fa-location-dot"></i> Seminyak, Bali</p>
-                        </div>
-                        <div class="price-col">
-                            <div class="old-price">$680</div>
-                            <div class="new-price">$442</div>
-                            <a href="https://stream7812.github.io/Room-Detail/" class="claim-btn">Claim</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hotel Card 1 -->
-            <div class="hotel-card">
-                <a href="https://stream7812.github.io/Room-Detail/" class="card-img-wrap">
-                    <img src="Azure.png" class="card-img" alt="">
-                    <div class="top-choice"><i class="fa-solid fa-circle-check"></i> Top Choice</div>
-                </a>
-                <div class="card-body">
-                    <div class="card-details">
-                        <h3>The Azure Serenity Resort <span class="stars">★★★★★</span></h3>
-                        <p class="card-loc"><i class="fa-solid fa-location-dot"></i> Ubud, Bali</p>
-                    </div>
-                    <div class="card-pricing">
-                        <div class="rating-box">
-                            <div class="rating-text"><span>8.9 Excellent</span></div>
-                            <div class="score">8.9</div>
-                        </div>
-                        <div>
-                            <div class="new-price">$284</div>
-                            <a href="https://stream7812.github.io/Room-Detail/" class="book-btn">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hotel Card 2 -->
-            <div class="hotel-card">
-                <a href="https://stream7812.github.io/Room-Detail/" class="card-img-wrap">
-                    <img src="Lumina.png" class="card-img" alt="">
-                </a>
-                <div class="card-body">
-                    <div class="card-details">
-                        <h3>Lumina Beach Villas <span class="stars">★★★★</span></h3>
-                        <p class="card-loc"><i class="fa-solid fa-location-dot"></i> Seminyak, Bali</p>
-                    </div>
-                    <div class="card-pricing">
-                        <div class="rating-box">
-                            <div class="rating-text"><span>9.2 Exceptional</span></div>
-                            <div class="score">9.2</div>
-                        </div>
-                        <div>
-                            <div class="new-price">$415</div>
-                            <a href="https://stream7812.github.io/Room-Detail/" class="book-btn">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hotel Card 3 -->
-            <div class="hotel-card">
-                <a href="https://stream7812.github.io/Room-Detail/" class="card-img-wrap">
-                    <img src="Palm.png" class="card-img" alt="">
-                </a>
-                <div class="card-body">
-                    <div class="card-details">
-                        <h3>The Palms Sanctuary <span class="stars">★★★★</span></h3>
-                        <p class="card-loc"><i class="fa-solid fa-location-dot"></i> Nusa Dua, Bali</p>
-                    </div>
-                    <div class="card-pricing">
-                        <div class="rating-box">
-                            <div class="rating-text"><span>8.4 Great</span></div>
-                            <div class="score">8.4</div>
-                        </div>
-                        <div>
-                            <div class="new-price">$189</div>
-                            <a href="https://stream7812.github.io/Room-Detail/" class="book-btn">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pagination">
-                <a href="#" class="pg-btn active">1</a>
-                <a href="#" class="pg-btn">2</a>
-            </div>
-        </main>
-    </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="https://stream7812.github.io/HomePage/#" class="logo">T-Goda</a>
-                <p>Making world travel accessible, affordable, and delightful for everyone since 2024.</p>
-                <div class="socials">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul><li>About Us</li></ul>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul><li>Support</li></ul>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
-User 3:19 PM
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grand Azure Resort & Spa | T-Goda</title>
@@ -1347,322 +16,322 @@ User 3:19 PM
             --border-color: #e0e0e0;
             --star-color: #ffc107;
         }
-code
-Code
-* {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-    }
 
-    body {
-        background-color: #fff;
-        color: var(--text-dark);
-        line-height: 1.6;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-    /* Global link styling to keep design consistent */
-    a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
-    a:hover { opacity: 0.8; }
+        body {
+            background-color: #fff;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-    /* --- Header --- */
-    header {
-        padding: 15px 10%;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid var(--border-color);
-        position: sticky;
-        top: 0;
-        background: white;
-        z-index: 1000;
-    }
+        /* Global link styling to keep design consistent */
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; }
 
-    .logo {
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--primary-blue);
-        margin-right: 40px;
-        display: inline-block;
-    }
+        /* --- Header --- */
+        header {
+            padding: 15px 10%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1000;
+        }
 
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 25px;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-right: 40px;
+            display: inline-block;
+        }
 
-    nav ul li a {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--text-light);
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
-    nav ul li a.active {
-        color: var(--primary-blue);
-        border-bottom: 2px solid var(--primary-blue);
-        padding-bottom: 5px;
-    }
+        nav ul li a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
 
-    .auth-buttons {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-left: auto;
-    }
+        nav ul li a.active {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 5px;
+        }
 
-    .sign-in { font-size: 14px; font-weight: 500; }
-    
-    .create-btn {
-        background: var(--primary-blue);
-        color: white;
-        padding: 10px 20px;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 500;
-    }
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: auto;
+        }
 
-    /* --- Content Layout --- */
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .sign-in { font-size: 14px; font-weight: 500; }
+        
+        .create-btn {
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-    .breadcrumbs {
-        font-size: 13px;
-        color: var(--text-light);
-        margin-bottom: 20px;
-    }
+        /* --- Content Layout --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-    .breadcrumbs a:hover {
-        color: var(--primary-blue);
-        text-decoration: underline;
-    }
+        .breadcrumbs {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
 
-    .hotel-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 20px;
-    }
+        .breadcrumbs a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
 
-    .stars { color: var(--star-color); font-size: 14px; }
-    .tag {
-        background: var(--primary-blue);
-        color: white;
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: bold;
-        margin-left: 10px;
-    }
+        .hotel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
 
-    .hotel-title h1 { font-size: 24px; margin: 10px 0 5px; }
-    .location { color: var(--text-light); font-size: 14px; }
-    .location a { color: var(--primary-blue); font-weight: 600; margin-left: 5px; }
+        .stars { color: var(--star-color); font-size: 14px; }
+        .tag {
+            background: var(--primary-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
 
-    .action-btns { display: flex; gap: 10px; }
-    .btn-outline {
-        border: 1px solid var(--border-color);
-        padding: 10px 20px;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 14px;
-        cursor: pointer;
-    }
-    .btn-book {
-        background: var(--accent-red);
-        color: white;
-        padding: 10px 30px;
-        border-radius: 6px;
-        font-weight: 600;
-        border: none;
-        cursor: pointer;
-    }
+        .hotel-title h1 { font-size: 24px; margin: 10px 0 5px; }
+        .location { color: var(--text-light); font-size: 14px; }
+        .location a { color: var(--primary-blue); font-weight: 600; margin-left: 5px; }
 
-    /* --- Gallery --- */
-    .gallery {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: 200px 200px;
-        gap: 12px;
-        margin-bottom: 40px;
-        border-radius: 12px;
-        overflow: hidden;
-    }
+        .action-btns { display: flex; gap: 10px; }
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-book {
+            background: var(--accent-red);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
 
-    .gallery-item { width: 100%; height: 100%; object-fit: cover; }
-    .main-img { grid-row: span 2; }
-    
-    .more-photos {
-        position: relative;
-        cursor: pointer;
-    }
-    .overlay {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.5);
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        font-size: 18px;
-    }
+        /* --- Gallery --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 200px 200px;
+            gap: 12px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
 
-    /* --- Content Grid --- */
-    .content-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 40px;
-    }
+        .gallery-item { width: 100%; height: 100%; object-fit: cover; }
+        .main-img { grid-row: span 2; }
+        
+        .more-photos {
+            position: relative;
+            cursor: pointer;
+        }
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
 
-    h2 { font-size: 20px; margin-bottom: 15px; margin-top: 30px;}
-    .overview-text { font-size: 15px; color: var(--text-light); }
+        /* --- Content Grid --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
 
-    .amenities-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 20px;
-        margin-top: 20px;
-    }
-    .amenity-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #444; }
-    .amenity-item i { color: var(--primary-blue); font-size: 18px; width: 25px;}
+        h2 { font-size: 20px; margin-bottom: 15px; margin-top: 30px;}
+        .overview-text { font-size: 15px; color: var(--text-light); }
 
-    .see-more { color: var(--primary-blue); font-weight: 600; font-size: 14px; margin-top: 20px; display: block; cursor: pointer;}
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .amenity-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #444; }
+        .amenity-item i { color: var(--primary-blue); font-size: 18px; width: 25px;}
 
-    /* --- Sidebar --- */
-    .sidebar-card {
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
+        .see-more { color: var(--primary-blue); font-weight: 600; font-size: 14px; margin-top: 20px; display: block; cursor: pointer;}
 
-    .rating-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
-    .rating-score {
-        background: var(--primary-blue);
-        color: white;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-        font-size: 20px;
-        font-weight: bold;
-    }
+        /* --- Sidebar --- */
+        .sidebar-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
-    .stat-row { margin-bottom: 15px; }
-    .stat-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; }
-    .progress-bar { height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--primary-blue); }
+        .rating-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+        .rating-score {
+            background: var(--primary-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-    .map-box {
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid var(--border-color);
-    }
-    .map-img { width: 100%; height: 180px; object-fit: cover; display: block; }
-    .map-info { padding: 15px; font-size: 14px; }
+        .stat-row { margin-bottom: 15px; }
+        .stat-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; }
+        .progress-bar { height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary-blue); }
 
-    /* --- Room Selection --- */
-    .room-table { 
-        width: 100%; border-collapse: collapse; margin-top: 20px; 
-        border: 1px solid #f0f0f0; border-radius: 12px; overflow: hidden;
-    }
-    .room-table th { background: #f8f9fb; text-align: left; padding: 15px; font-size: 14px; color: var(--text-light); }
-    .room-table td { padding: 20px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .map-box {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .map-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+        .map-info { padding: 15px; font-size: 14px; }
 
-    .room-title { font-weight: 700; font-size: 15px; margin-bottom: 5px; }
-    .room-details { font-size: 13px; color: var(--text-light); margin-bottom: 5px;}
-    .limited-tag { background: #9f3a4b; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 10px;}
-    .room-link { color: var(--primary-blue); font-size: 13px; display: flex; align-items: center; gap: 5px; }
+        /* --- Room Selection --- */
+        .room-table { 
+            width: 100%; border-collapse: collapse; margin-top: 20px; 
+            border: 1px solid #f0f0f0; border-radius: 12px; overflow: hidden;
+        }
+        .room-table th { background: #f8f9fb; text-align: left; padding: 15px; font-size: 14px; color: var(--text-light); }
+        .room-table td { padding: 20px; border-bottom: 1px solid #eee; vertical-align: top; }
 
-    .sleeps-icons { font-size: 14px; color: #444; display: flex; gap: 2px; }
-    .price-box { display: flex; flex-direction: column; }
-    .price-old { text-decoration: line-through; color: var(--text-light); font-size: 13px; }
-    .price-new { font-size: 24px; font-weight: 800; color: #9f3a4b; margin: 2px 0; }
-    .price-sub { font-size: 12px; color: var(--text-light); }
+        .room-title { font-weight: 700; font-size: 15px; margin-bottom: 5px; }
+        .room-details { font-size: 13px; color: var(--text-light); margin-bottom: 5px;}
+        .limited-tag { background: #9f3a4b; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 10px;}
+        .room-link { color: var(--primary-blue); font-size: 13px; display: flex; align-items: center; gap: 5px; }
 
-    .option-item { color: #2e7d32; font-size: 13px; display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-weight: 500; }
-    .urgency { color: #d32f2f; font-weight: 700; font-size: 13px; margin-top: 10px; display: block;}
+        .sleeps-icons { font-size: 14px; color: #444; display: flex; gap: 2px; }
+        .price-box { display: flex; flex-direction: column; }
+        .price-old { text-decoration: line-through; color: var(--text-light); font-size: 13px; }
+        .price-new { font-size: 24px; font-weight: 800; color: #9f3a4b; margin: 2px 0; }
+        .price-sub { font-size: 12px; color: var(--text-light); }
 
-    .btn-cell { display: flex; flex-direction: column; align-items: flex-end; }
-    .btn-select {
-        background: var(--primary-blue);
-        color: white;
-        border: none;
-        padding: 8px 25px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-    }
-    .btn-select.accent { background: var(--accent-red); }
+        .option-item { color: #2e7d32; font-size: 13px; display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-weight: 500; }
+        .urgency { color: #d32f2f; font-weight: 700; font-size: 13px; margin-top: 10px; display: block;}
 
-    /* --- Fixed Footer Styles --- */
-    footer { 
-        background: #fff; 
-        padding: 80px 10% 40px; 
-        border-top: 1px solid #f0f0f0; 
-        margin-top: 80px; 
-    }
-    
-    .footer-grid { 
-        display: grid; 
-        grid-template-columns: 2.5fr 1fr 1fr 1fr; 
-        gap: 40px; 
-        margin-bottom: 40px;
-    }
+        .btn-cell { display: flex; flex-direction: column; align-items: flex-end; }
+        .btn-select {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .btn-select.accent { background: var(--accent-red); }
 
-    .footer-col h4 { 
-        font-size: 15px; 
-        font-weight: 700; 
-        color: #333; 
-        margin-bottom: 25px; 
-    }
+        /* --- Fixed Footer Styles --- */
+        footer { 
+            background: #fff; 
+            padding: 80px 10% 40px; 
+            border-top: 1px solid #f0f0f0; 
+            margin-top: 80px; 
+        }
+        
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 2.5fr 1fr 1fr 1fr; 
+            gap: 40px; 
+            margin-bottom: 40px;
+        }
 
-    .footer-col ul { 
-        list-style: none; 
-        padding: 0; 
-    }
+        .footer-col h4 { 
+            font-size: 15px; 
+            font-weight: 700; 
+            color: #333; 
+            margin-bottom: 25px; 
+        }
 
-    .footer-col ul li { 
-        margin-bottom: 15px; 
-        font-size: 14px; 
-        color: #718096;
-        cursor: pointer;
-    }
+        .footer-col ul { 
+            list-style: none; 
+            padding: 0; 
+        }
 
-    .footer-desc { 
-        font-size: 14px; 
-        color: #718096; 
-        max-width: 320px; 
-        margin: 20px 0 30px; 
-        line-height: 1.5;
-    }
+        .footer-col ul li { 
+            margin-bottom: 15px; 
+            font-size: 14px; 
+            color: #718096;
+            cursor: pointer;
+        }
 
-    .copyright-text { 
-        font-size: 13px; 
-        color: #718096; 
-        margin-bottom: 20px; 
-    }
+        .footer-desc { 
+            font-size: 14px; 
+            color: #718096; 
+            max-width: 320px; 
+            margin: 20px 0 30px; 
+            line-height: 1.5;
+        }
 
-    .social-icons { 
-        display: flex; 
-        gap: 20px; 
-        font-size: 22px; 
-        color: #cbd5e0; 
-    }
-    
-    .social-icons i:hover { color: var(--primary-blue); }
+        .copyright-text { 
+            font-size: 13px; 
+            color: #718096; 
+            margin-bottom: 20px; 
+        }
 
-    @media (max-width: 992px) {
-        .content-grid, .footer-grid { grid-template-columns: 1fr; }
-        .gallery { grid-template-columns: 1fr 1fr; }
-    }
-</style>
+        .social-icons { 
+            display: flex; 
+            gap: 20px; 
+            font-size: 22px; 
+            color: #cbd5e0; 
+        }
+        
+        .social-icons i:hover { color: var(--primary-blue); }
+
+        @media (max-width: 992px) {
+            .content-grid, .footer-grid { grid-template-columns: 1fr; }
+            .gallery { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
+
 <header>
     <a href="https://stream7812.github.io/HomePage/#" class="logo">T-Goda</a>
     <nav>
@@ -1678,6 +347,7 @@ Code
         <a href="#" class="create-btn">Create Account</a>
     </div>
 </header>
+
 <div class="container">
     <div class="breadcrumbs">
         <a href="https://stream7812.github.io/HomePage/#">Home</a> > 
@@ -1685,162 +355,162 @@ Code
         <a href="https://stream7812.github.io/HomePage/#">Crete Hotels</a> > 
         <b>Grand Azure Resort & Spa</b>
     </div>
-code
-Code
-<div class="hotel-header">
-    <div class="hotel-title">
-        <div class="stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            <span class="tag">RESORT</span>
+
+    <div class="hotel-header">
+        <div class="hotel-title">
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="tag">RESORT</span>
+            </div>
+            <h1>Grand Azure Resort & Spa, Elounda</h1>
+            <div class="location">
+                <i class="fas fa-location-dot"></i> Elounda Bay, Crete, 72053, Greece <a href="#">Show on map</a>
+            </div>
         </div>
-        <h1>Grand Azure Resort & Spa, Elounda</h1>
-        <div class="location">
-            <i class="fas fa-location-dot"></i> Elounda Bay, Crete, 72053, Greece <a href="#">Show on map</a>
+        <div class="action-btns">
+            <div class="btn-outline"><i class="fas fa-share-nodes"></i> Share</div>
+            <div class="btn-outline"><i class="far fa-heart"></i> Save</div>
+            <button class="btn-book">Book Now</button>
         </div>
     </div>
-    <div class="action-btns">
-        <div class="btn-outline"><i class="fas fa-share-nodes"></i> Share</div>
-        <div class="btn-outline"><i class="far fa-heart"></i> Save</div>
-        <button class="btn-book">Book Now</button>
+
+    <div class="gallery">
+        <img src="pool1.png" class="gallery-item main-img" alt="Pool View">
+        <img src="pool2.png" class="gallery-item" alt="Bedroom View">
+        <img src="pool3.png" class="gallery-item" alt="Aerial Pool">
+        <img src="pool4.png" class="gallery-item" alt="Outdoor Lounge">
+        <div class="gallery-item more-photos">
+            <img src="pool5.png" style="width:100%;height:100%;object-fit:cover;" alt="Spa Area">
+            <div class="overlay">+124 photos</div>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="main-content">
+            <h2>Overview</h2>
+            <p class="overview-text">
+                Experience unparalleled luxury at the Grand Azure Resort & Spa, nestled on the pristine shores of Elounda Bay. This architectural masterpiece blends traditional Cretan charm with ultra-modern design, offering guests breathtaking panoramic views of the Mediterranean.
+            </p>
+
+            <h2>Popular Amenities</h2>
+            <div class="amenities-grid">
+                <div class="amenity-item"><i class="fas fa-swimmer"></i> 3 Outdoor Pools</div>
+                <div class="amenity-item"><i class="fas fa-leaf"></i> Full-service Spa</div>
+                <div class="amenity-item"><i class="fas fa-utensils"></i> 5 Restaurants</div>
+                <div class="amenity-item"><i class="fas fa-dumbbell"></i> Gym & Fitness</div>
+                <div class="amenity-item"><i class="fas fa-wifi"></i> Free High-speed Wi-Fi</div>
+                <div class="amenity-item"><i class="fas fa-umbrella-beach"></i> Private Beach</div>
+            </div>
+            <a class="see-more">See all 45 amenities <i class="fas fa-chevron-down"></i></a>
+
+            <div class="room-section">
+                <h2>Select Your Room</h2>
+                <table class="room-table">
+                    <thead>
+                        <tr>
+                            <th width="40%">Room Type</th>
+                            <th width="15%">Sleeps</th>
+                            <th width="20%">Today's Price</th>
+                            <th width="25%">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Room 1 -->
+                        <tr>
+                            <td>
+                                <div class="room-title">Presidential Sea Front Suite</div>
+                                <span class="limited-tag">LIMITED TIME OFFER</span>
+                                <div class="room-details">85m² • Panoramic Sea View • Infinity Pool Access</div>
+                                <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
+                            </td>
+                            <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-user"></i></div></td>
+                            <td>
+                                <span class="price-old">$1,295</span>
+                                <span class="price-new">$862</span>
+                                <span class="price-sub">Includes taxes & fees</span>
+                            </td>
+                            <td class="btn-cell">
+                                <div class="option-item"><i class="far fa-circle-check"></i> Free Airport Transfer</div>
+                                <div class="option-item"><i class="far fa-circle-check"></i> All-Inclusive Premium</div>
+                                <span class="urgency">Only 1 room left!</span>
+                                <button class="btn-select accent" style="margin-top:10px">Select</button>
+                            </td>
+                        </tr>
+                        <!-- Room 2 -->
+                        <tr>
+                            <td>
+                                <div class="room-title">Deluxe Garden View Room</div>
+                                <div class="room-details">32m² • Balcony • Garden View • 1 King Bed</div>
+                                <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
+                            </td>
+                            <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i></div></td>
+                            <td>
+                                <span class="price-old">$345</span>
+                                <span class="price-new">$264</span>
+                                <span class="price-sub">Includes taxes & fees</span>
+                            </td>
+                            <td class="btn-cell">
+                                <div class="option-item"><i class="far fa-circle-check"></i> Free Cancellation</div>
+                                <div class="option-item"><i class="far fa-circle-check"></i> Breakfast Included</div>
+                                <button class="btn-select" style="margin-top:10px">Select</button>
+                            </td>
+                        </tr>
+                        <!-- Room 3 -->
+                        <tr>
+                            <td>
+                                <div class="room-title">Junior Suite with Private Pool</div>
+                                <div class="room-details">45m² • Private Pool • Sea View • King Bed</div>
+                                <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
+                            </td>
+                            <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-face-smile"></i></div></td>
+                            <td>
+                                <span class="price-old">$626</span>
+                                <span class="price-new">$445</span>
+                                <span class="price-sub">Includes taxes & fees</span>
+                            </td>
+                            <td class="btn-cell">
+                                <div class="option-item"><i class="far fa-circle-check"></i> Free Cancellation</div>
+                                <div class="option-item"><i class="far fa-circle-check"></i> All-Inclusive</div>
+                                <span class="urgency">Only 2 rooms left!</span>
+                                <button class="btn-select" style="margin-top:10px">Select</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <div class="rating-header">
+                    <div><b>Excellent</b><br><span style="font-size:13px; color:#666">1,248 verified reviews</span></div>
+                    <div class="rating-score">9.2</div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-label"><span>Cleanliness</span> <span>9.5</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-label"><span>Service</span> <span>9.2</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-label"><span>Location</span> <span>8.9</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 89%;"></div></div>
+                </div>
+            </div>
+
+            <div class="map-box">
+                <img src="hk.png" class="map-img" alt="Resort Map Illustration">
+                <div class="map-info">
+                    <b>Near Spinalonga Island</b><br>
+                    <span style="color:#666; font-size: 13px;">15 min walk to city center</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="gallery">
-    <img src="pool1.png" class="gallery-item main-img" alt="Pool View">
-    <img src="pool2.png" class="gallery-item" alt="Bedroom View">
-    <img src="pool3.png" class="gallery-item" alt="Aerial Pool">
-    <img src="pool4.png" class="gallery-item" alt="Outdoor Lounge">
-    <div class="gallery-item more-photos">
-        <img src="pool5.png" style="width:100%;height:100%;object-fit:cover;" alt="Spa Area">
-        <div class="overlay">+124 photos</div>
-    </div>
-</div>
-
-<div class="content-grid">
-    <div class="main-content">
-        <h2>Overview</h2>
-        <p class="overview-text">
-            Experience unparalleled luxury at the Grand Azure Resort & Spa, nestled on the pristine shores of Elounda Bay. This architectural masterpiece blends traditional Cretan charm with ultra-modern design, offering guests breathtaking panoramic views of the Mediterranean.
-        </p>
-
-        <h2>Popular Amenities</h2>
-        <div class="amenities-grid">
-            <div class="amenity-item"><i class="fas fa-swimmer"></i> 3 Outdoor Pools</div>
-            <div class="amenity-item"><i class="fas fa-leaf"></i> Full-service Spa</div>
-            <div class="amenity-item"><i class="fas fa-utensils"></i> 5 Restaurants</div>
-            <div class="amenity-item"><i class="fas fa-dumbbell"></i> Gym & Fitness</div>
-            <div class="amenity-item"><i class="fas fa-wifi"></i> Free High-speed Wi-Fi</div>
-            <div class="amenity-item"><i class="fas fa-umbrella-beach"></i> Private Beach</div>
-        </div>
-        <a class="see-more">See all 45 amenities <i class="fas fa-chevron-down"></i></a>
-
-        <div class="room-section">
-            <h2>Select Your Room</h2>
-            <table class="room-table">
-                <thead>
-                    <tr>
-                        <th width="40%">Room Type</th>
-                        <th width="15%">Sleeps</th>
-                        <th width="20%">Today's Price</th>
-                        <th width="25%">Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Room 1 -->
-                    <tr>
-                        <td>
-                            <div class="room-title">Presidential Sea Front Suite</div>
-                            <span class="limited-tag">LIMITED TIME OFFER</span>
-                            <div class="room-details">85m² • Panoramic Sea View • Infinity Pool Access</div>
-                            <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
-                        </td>
-                        <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-user"></i></div></td>
-                        <td>
-                            <span class="price-old">$1,295</span>
-                            <span class="price-new">$862</span>
-                            <span class="price-sub">Includes taxes & fees</span>
-                        </td>
-                        <td class="btn-cell">
-                            <div class="option-item"><i class="far fa-circle-check"></i> Free Airport Transfer</div>
-                            <div class="option-item"><i class="far fa-circle-check"></i> All-Inclusive Premium</div>
-                            <span class="urgency">Only 1 room left!</span>
-                            <button class="btn-select accent" style="margin-top:10px">Select</button>
-                        </td>
-                    </tr>
-                    <!-- Room 2 -->
-                    <tr>
-                        <td>
-                            <div class="room-title">Deluxe Garden View Room</div>
-                            <div class="room-details">32m² • Balcony • Garden View • 1 King Bed</div>
-                            <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
-                        </td>
-                        <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i></div></td>
-                        <td>
-                            <span class="price-old">$345</span>
-                            <span class="price-new">$264</span>
-                            <span class="price-sub">Includes taxes & fees</span>
-                        </td>
-                        <td class="btn-cell">
-                            <div class="option-item"><i class="far fa-circle-check"></i> Free Cancellation</div>
-                            <div class="option-item"><i class="far fa-circle-check"></i> Breakfast Included</div>
-                            <button class="btn-select" style="margin-top:10px">Select</button>
-                        </td>
-                    </tr>
-                    <!-- Room 3 -->
-                    <tr>
-                        <td>
-                            <div class="room-title">Junior Suite with Private Pool</div>
-                            <div class="room-details">45m² • Private Pool • Sea View • King Bed</div>
-                            <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
-                        </td>
-                        <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-face-smile"></i></div></td>
-                        <td>
-                            <span class="price-old">$626</span>
-                            <span class="price-new">$445</span>
-                            <span class="price-sub">Includes taxes & fees</span>
-                        </td>
-                        <td class="btn-cell">
-                            <div class="option-item"><i class="far fa-circle-check"></i> Free Cancellation</div>
-                            <div class="option-item"><i class="far fa-circle-check"></i> All-Inclusive</div>
-                            <span class="urgency">Only 2 rooms left!</span>
-                            <button class="btn-select" style="margin-top:10px">Select</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="sidebar">
-        <div class="sidebar-card">
-            <div class="rating-header">
-                <div><b>Excellent</b><br><span style="font-size:13px; color:#666">1,248 verified reviews</span></div>
-                <div class="rating-score">9.2</div>
-            </div>
-            <div class="stat-row">
-                <div class="stat-label"><span>Cleanliness</span> <span>9.5</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
-            </div>
-            <div class="stat-row">
-                <div class="stat-label"><span>Service</span> <span>9.2</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
-            </div>
-            <div class="stat-row">
-                <div class="stat-label"><span>Location</span> <span>8.9</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 89%;"></div></div>
-            </div>
-        </div>
-
-        <div class="map-box">
-            <img src="hk.png" class="map-img" alt="Resort Map Illustration">
-            <div class="map-info">
-                <b>Near Spinalonga Island</b><br>
-                <span style="color:#666; font-size: 13px;">15 min walk to city center</span>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
@@ -1855,78 +525,32 @@ Code
                 <i class="fab fa-twitter"></i>
             </div>
         </div>
-code
-Code
-<div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-            <li>About Us</li>
-            <li>Careers</li>
-        </ul>
-    </div>
 
-    <div class="footer-col">
-        <h4>Support</h4>
-        <ul>
-            <li>Support</li>
-            <li>Mobile App</li>
-        </ul>
-    </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li>About Us</li>
+                <li>Careers</li>
+            </ul>
+        </div>
 
-    <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-            <li>Privacy Policy</li>
-            <li>Terms of Service</li>
-        </ul>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li>Support</li>
+                <li>Mobile App</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+                <li>Privacy Policy</li>
+                <li>Terms of Service</li>
+            </ul>
+        </div>
     </div>
-</div>
 </footer>
+
 </body>
 </html>
- And this code in <div class="filter-group">
-                <h4>Property Type</h4>
-                <label class="check-item"><input type="checkbox"> Hotels</label>
-                <label class="check-item"><input type="checkbox"> Resorts</label>
-                <label class="check-item"><input type="checkbox"> Apartments</label>
-                <label class="check-item"><input type="checkbox"> Villas</label>
-            </div>
-code
-Code
-<div class="filter-group">
-            <h4>Star Rating</h4>
-            <label class="check-item"><input type="checkbox"> <span class="stars">★★★★★</span></label>
-            <label class="check-item"><input type="checkbox"> <span class="stars">★★★★</span></label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Facilities</h4>
-            <label class="check-item"><input type="checkbox"> Free Wi-Fi</label>
-            <label class="check-item"><input type="checkbox"> Swimming Pool</label>
-            <label class="check-item"><input type="checkbox"> Fitness Center</label>
-            <label class="check-item"><input type="checkbox"> Spa</label>
-            <label class="check-item"><input type="checkbox"> Parking</label>
-            <label class="check-item"><input type="checkbox"> Pet Friendly</label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Review Scores</h4>
-            <label class="check-item"><input type="checkbox"> Superb 9+</label>
-            <label class="check-item"><input type="checkbox"> Very Good 8+</label>
-            <label class="check-item"><input type="checkbox"> Good 7+</label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Neighborhood</h4>
-            <label class="check-item"><input type="checkbox"> Patong</label>
-            <label class="check-item"><input type="checkbox"> Keron</label>
-            <label class="check-item"><input type="checkbox"> Kata</label>
-            <label class="check-item"><input type="checkbox"> Kamala</label>
-        </div>
-
-        <div class="filter-group">
-            <h4>Bed Type</h4>
-            <label class="check-item"><input type="checkbox"> Single</label>
-            <label class="check-item"><input type="checkbox"> Double</label>
-            <label class="check-item"><input type="checkbox"> King</label>
-        </div>
