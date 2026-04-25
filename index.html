@@ -30,7 +30,6 @@
             line-height: 1.6;
         }
 
-        /* Global link styling to keep design consistent */
         a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
         a:hover { opacity: 0.8; }
 
@@ -198,7 +197,7 @@
 
         .see-more { color: var(--primary-blue); font-weight: 600; font-size: 14px; margin-top: 20px; display: block; cursor: pointer;}
 
-        /* --- Sidebar --- */
+        /* --- Sidebar & Filters --- */
         .sidebar-card {
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -225,6 +224,14 @@
         .progress-bar { height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--primary-blue); }
 
+        /* Filter Styles */
+        .filter-section h3 { font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; }
+        .filter-group { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; }
+        .filter-group h4 { font-size: 14px; margin-bottom: 12px; color: var(--text-dark); font-weight: 700; }
+        .check-item { display: flex; align-items: center; gap: 10px; font-size: 13px; margin-bottom: 10px; color: var(--text-light); cursor: pointer; }
+        .check-item input { width: 16px; height: 16px; cursor: pointer; }
+        .stars { color: var(--star-color); letter-spacing: 2px; }
+
         .map-box {
             border-radius: 12px;
             overflow: hidden;
@@ -247,9 +254,8 @@
         .room-link { color: var(--primary-blue); font-size: 13px; display: flex; align-items: center; gap: 5px; }
 
         .sleeps-icons { font-size: 14px; color: #444; display: flex; gap: 2px; }
-        .price-box { display: flex; flex-direction: column; }
-        .price-old { text-decoration: line-through; color: var(--text-light); font-size: 13px; }
         .price-new { font-size: 24px; font-weight: 800; color: #9f3a4b; margin: 2px 0; }
+        .price-old { text-decoration: line-through; color: var(--text-light); font-size: 13px; }
         .price-sub { font-size: 12px; color: var(--text-light); }
 
         .option-item { color: #2e7d32; font-size: 13px; display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-weight: 500; }
@@ -267,62 +273,20 @@
         }
         .btn-select.accent { background: var(--accent-red); }
 
-        /* --- Fixed Footer Styles --- */
+        /* --- Footer --- */
         footer { 
             background: #fff; 
             padding: 80px 10% 40px; 
             border-top: 1px solid #f0f0f0; 
             margin-top: 80px; 
         }
-        
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: 2.5fr 1fr 1fr 1fr; 
-            gap: 40px; 
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 { 
-            font-size: 15px; 
-            font-weight: 700; 
-            color: #333; 
-            margin-bottom: 25px; 
-        }
-
-        .footer-col ul { 
-            list-style: none; 
-            padding: 0; 
-        }
-
-        .footer-col ul li { 
-            margin-bottom: 15px; 
-            font-size: 14px; 
-            color: #718096;
-            cursor: pointer;
-        }
-
-        .footer-desc { 
-            font-size: 14px; 
-            color: #718096; 
-            max-width: 320px; 
-            margin: 20px 0 30px; 
-            line-height: 1.5;
-        }
-
-        .copyright-text { 
-            font-size: 13px; 
-            color: #718096; 
-            margin-bottom: 20px; 
-        }
-
-        .social-icons { 
-            display: flex; 
-            gap: 20px; 
-            font-size: 22px; 
-            color: #cbd5e0; 
-        }
-        
-        .social-icons i:hover { color: var(--primary-blue); }
+        .footer-grid { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-desc { font-size: 14px; color: #718096; max-width: 320px; margin: 20px 0 30px; line-height: 1.5; }
+        .footer-col h4 { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 25px; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 15px; font-size: 14px; color: #718096; cursor: pointer; }
+        .copyright-text { font-size: 13px; color: #718096; margin-bottom: 20px; }
+        .social-icons { display: flex; gap: 20px; font-size: 22px; color: #cbd5e0; }
 
         @media (max-width: 992px) {
             .content-grid, .footer-grid { grid-template-columns: 1fr; }
@@ -358,10 +322,6 @@
 
     <div class="hotel-header">
         <div class="hotel-title">
-            <div class="stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <span class="tag">RESORT</span>
-            </div>
             <h1>Grand Azure Resort & Spa, Elounda</h1>
             <div class="location">
                 <i class="fas fa-location-dot"></i> Elounda Bay, Crete, 72053, Greece <a href="#">Show on map</a>
@@ -415,64 +375,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Room 1 -->
                         <tr>
                             <td>
                                 <div class="room-title">Presidential Sea Front Suite</div>
                                 <span class="limited-tag">LIMITED TIME OFFER</span>
                                 <div class="room-details">85m² • Panoramic Sea View • Infinity Pool Access</div>
-                                <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
                             </td>
                             <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-user"></i></div></td>
                             <td>
                                 <span class="price-old">$1,295</span>
                                 <span class="price-new">$862</span>
-                                <span class="price-sub">Includes taxes & fees</span>
                             </td>
                             <td class="btn-cell">
-                                <div class="option-item"><i class="far fa-circle-check"></i> Free Airport Transfer</div>
                                 <div class="option-item"><i class="far fa-circle-check"></i> All-Inclusive Premium</div>
                                 <span class="urgency">Only 1 room left!</span>
                                 <button class="btn-select accent" style="margin-top:10px">Select</button>
-                            </td>
-                        </tr>
-                        <!-- Room 2 -->
-                        <tr>
-                            <td>
-                                <div class="room-title">Deluxe Garden View Room</div>
-                                <div class="room-details">32m² • Balcony • Garden View • 1 King Bed</div>
-                                <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
-                            </td>
-                            <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i></div></td>
-                            <td>
-                                <span class="price-old">$345</span>
-                                <span class="price-new">$264</span>
-                                <span class="price-sub">Includes taxes & fees</span>
-                            </td>
-                            <td class="btn-cell">
-                                <div class="option-item"><i class="far fa-circle-check"></i> Free Cancellation</div>
-                                <div class="option-item"><i class="far fa-circle-check"></i> Breakfast Included</div>
-                                <button class="btn-select" style="margin-top:10px">Select</button>
-                            </td>
-                        </tr>
-                        <!-- Room 3 -->
-                        <tr>
-                            <td>
-                                <div class="room-title">Junior Suite with Private Pool</div>
-                                <div class="room-details">45m² • Private Pool • Sea View • King Bed</div>
-                                <a href="#" class="room-link"><i class="far fa-circle-question"></i> Room details</a>
-                            </td>
-                            <td><div class="sleeps-icons"><i class="fas fa-user"></i><i class="fas fa-user"></i><i class="fas fa-face-smile"></i></div></td>
-                            <td>
-                                <span class="price-old">$626</span>
-                                <span class="price-new">$445</span>
-                                <span class="price-sub">Includes taxes & fees</span>
-                            </td>
-                            <td class="btn-cell">
-                                <div class="option-item"><i class="far fa-circle-check"></i> Free Cancellation</div>
-                                <div class="option-item"><i class="far fa-circle-check"></i> All-Inclusive</div>
-                                <span class="urgency">Only 2 rooms left!</span>
-                                <button class="btn-select" style="margin-top:10px">Select</button>
                             </td>
                         </tr>
                     </tbody>
@@ -490,18 +407,62 @@
                     <div class="stat-label"><span>Cleanliness</span> <span>9.5</span></div>
                     <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
                 </div>
-                <div class="stat-row">
-                    <div class="stat-label"><span>Service</span> <span>9.2</span></div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
-                </div>
-                <div class="stat-row">
-                    <div class="stat-label"><span>Location</span> <span>8.9</span></div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 89%;"></div></div>
-                </div>
             </div>
 
+            <!-- FILTERS START HERE -->
+            <div class="sidebar-card filter-section">
+                <h3><i class="fas fa-sliders-h"></i> Filters</h3>
+                
+                <div class="filter-group">
+                    <h4>Property Type</h4>
+                    <label class="check-item"><input type="checkbox"> Hotels</label>
+                    <label class="check-item"><input type="checkbox"> Resorts</label>
+                    <label class="check-item"><input type="checkbox"> Apartments</label>
+                    <label class="check-item"><input type="checkbox"> Villas</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Star Rating</h4>
+                    <label class="check-item"><input type="checkbox"> <span class="stars">★★★★★</span></label>
+                    <label class="check-item"><input type="checkbox"> <span class="stars">★★★★</span></label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Facilities</h4>
+                    <label class="check-item"><input type="checkbox"> Free Wi-Fi</label>
+                    <label class="check-item"><input type="checkbox"> Swimming Pool</label>
+                    <label class="check-item"><input type="checkbox"> Fitness Center</label>
+                    <label class="check-item"><input type="checkbox"> Spa</label>
+                    <label class="check-item"><input type="checkbox"> Parking</label>
+                    <label class="check-item"><input type="checkbox"> Pet Friendly</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Review Scores</h4>
+                    <label class="check-item"><input type="checkbox"> Superb 9+</label>
+                    <label class="check-item"><input type="checkbox"> Very Good 8+</label>
+                    <label class="check-item"><input type="checkbox"> Good 7+</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Neighborhood</h4>
+                    <label class="check-item"><input type="checkbox"> Patong</label>
+                    <label class="check-item"><input type="checkbox"> Keron</label>
+                    <label class="check-item"><input type="checkbox"> Kata</label>
+                    <label class="check-item"><input type="checkbox"> Kamala</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Bed Type</h4>
+                    <label class="check-item"><input type="checkbox"> Single</label>
+                    <label class="check-item"><input type="checkbox"> Double</label>
+                    <label class="check-item"><input type="checkbox"> King</label>
+                </div>
+            </div>
+            <!-- FILTERS END HERE -->
+
             <div class="map-box">
-                <img src="hk.png" class="map-img" alt="Resort Map Illustration">
+                <img src="hk.png" class="map-img" alt="Resort Map">
                 <div class="map-info">
                     <b>Near Spinalonga Island</b><br>
                     <span style="color:#666; font-size: 13px;">15 min walk to city center</span>
@@ -515,39 +476,20 @@
     <div class="footer-grid">
         <div class="footer-col">
             <a href="https://stream7812.github.io/HomePage/#" class="logo">T-Goda</a>
-            <p class="footer-desc">
-                Making world travel accessible, affordable, and delightful for everyone since 2024. Your journey starts here.
-            </p>
+            <p class="footer-desc">Making world travel accessible, affordable, and delightful for everyone since 2024.</p>
             <div class="copyright-text">© 2024 T-Goda Booking. All rights reserved.</div>
-            <div class="social-icons">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-            </div>
         </div>
-
         <div class="footer-col">
             <h4>Company</h4>
-            <ul>
-                <li>About Us</li>
-                <li>Careers</li>
-            </ul>
+            <ul><li>About Us</li><li>Careers</li></ul>
         </div>
-
         <div class="footer-col">
             <h4>Support</h4>
-            <ul>
-                <li>Support</li>
-                <li>Mobile App</li>
-            </ul>
+            <ul><li>Support</li><li>Mobile App</li></ul>
         </div>
-
         <div class="footer-col">
             <h4>Legal</h4>
-            <ul>
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-            </ul>
+            <ul><li>Privacy Policy</li><li>Terms of Service</li></ul>
         </div>
     </div>
 </footer>
